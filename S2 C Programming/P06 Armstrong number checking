@@ -1,4 +1,4 @@
-//program to check if a number is Armstrong or not
+//program to check if a number is Armstrong or not (Provided the numberr is a three digit number)
 #include<stdio.h>
 void main()
 { 
