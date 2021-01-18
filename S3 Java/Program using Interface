@@ -1,0 +1,39 @@
+interface Shape{
+    
+    public void areaCalc();
+    
+    
+}
+
+class Rectangle implements Shape{
+    
+    public void areaCalc(){
+        System.out.println("rectangle is working");
+    }
+    
+}
+
+class Triangle implements Shape{
+    
+    public void areaCalc(){
+        System.out.println("triangle is also working");
+    }
+    
+}
+
+public class interfaces
+{
+	public static void main(String[] args) {
+		
+	System.out.println("main is working");
+	
+	Rectangle obj1=new Rectangle();
+	obj1.areaCalc();
+	
+	Triangle obj2=new Triangle();
+	obj2.areaCalc();
+		
+		
+		
+	}
+}
