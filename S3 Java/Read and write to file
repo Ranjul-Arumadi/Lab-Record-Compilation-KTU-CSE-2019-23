@@ -1,0 +1,44 @@
+import java.io.*;
+//import java.io.File;
+
+class Files
+{
+	public static void main(String[] args) throws IOException
+	{
+		int ch;
+		System.out.println("1");
+		FileWriter fw = new FileWriter("output.txt");
+		System.out.println("2");
+		FileReader fr=null;
+		try{
+			System.out.println("3");
+			fr = new FileReader("input.txt");
+		}
+		catch(Exception e){
+			System.out.println("4");
+			System.out.println("File not found\n");
+		}
+		
+		
+		
+		
+		
+		int count=0;
+		while((ch=fr.read())!=-1)
+		{
+			System.out.println("5");
+			fw.write((char)ch);
+			if(ch=='a')
+			{
+				System.out.println("6");
+				count++;
+			}
+		}
+		fr.close();
+		
+		//String str ="No. of 'a' is  ";
+		fw.write("\nNo. of 'a' is  "+count);
+		System.out.println("7");
+		fw.close();
+	}
+}
