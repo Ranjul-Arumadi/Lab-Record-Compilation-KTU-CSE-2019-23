@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+class vehicle{
+    void display(){
+        System.out.println("I am vehicle");
+    }
+}
+class Bike extends vehicle{
+    String brand;
+    Bike(String bikebrnd){
+        brand=bikebrnd;
+    }
+    void display(){
+        System.out.println("Bike brand is "+brand);
+    }
+}
+class Car extends vehicle{
+    String brand;
+    Car(String carbrand){
+        brand=carbrand;
+    }
+    void display(){
+        System.out.println("Car brand is "+brand);
+    }
+
+}
+public class vhcle {
+    public static void main(String [] args)
+    {
+        Scanner scanner=new Scanner(System.in);
+        vehicle obj;
+        obj=new vehicle();
+        obj.display();
+        System.out.println("Enter car brand name");
+        String carName=scanner.nextLine();
+        obj=new Car(carName);
+        obj.display();
+        System.out.println("Enter bike brand");
+        String bikeName=scanner.nextLine();
+        obj=new Bike(bikeName);
+        obj.display();
+
+    }
+}
