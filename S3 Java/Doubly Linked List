@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+class JavaDoublyLinkedList {
+    class Node {
+        int data;
+        Node previous;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+}
+
+    Node head, tail = null;
+
+    public void AddNode(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+            head.previous = null;
+            tail.next = null;
+        } else {
+            tail.next = newNode;
+            newNode.previous = tail;
+            tail = newNode;
+            tail.next = null;
+        }
+    }
+
+    public void Print() {
+        Node temp = head;
+        if (temp == null)
+            System.out.println("\nEmpty");
+        else {
+            System.out.println("\nNodes are: ");
+            while (temp != null) {
+                System.out.print(" " + temp.data + " ");
+                temp = temp.next;
+            }
+        }
+    }
+
+    public void Del() {
+        Scanner sc = new Scanner(System.in);
+        Node t1 = head;
+        int check;
+        if (head == null)
+            System.out.println("\nEmpty");
+        else {
+            System.out.print("\nEnter The Data Of The Node To Be Deleted: ");
+            check = sc.nextInt();
+            if (head.data == check)
+                head = head.next;
+            else {
+                while (t1 != null && t1.data != check)
+                {
+                    t1 = t1.next;
+                }
+                if (t1 == null)
+                    System.out.println("\nElement not found");
+                else if(t1.next==null)
+                {
+                    t1.previous.next=null;
+                }
+                else
+                    {
+                    t1.previous.next = t1.next;
+                    t1.next.previous = t1.previous;
+                   }
+               }
+            Print();
+           }
+       }
+}
+
+public class DoublyLinkedList
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int ch,data;
+        JavaDoublyLinkedList D = new JavaDoublyLinkedList();
+        do {
+            System.out.println("Options :\n1.Insertion  2.Display  3.Deletion  4.Exit");
+       
+            ch = sc.nextInt();
+            switch(ch)
+            {
+                case 1: System.out.println("\nEnter data: ");
+                        data = sc.nextInt();
+                        D.AddNode(data);
+                        break;
+                case 2: D.Print();
+                        break;
+                case 3: D.Del();
+                        break;
+                case 4: System.out.println("\nExiting...");
+                        break;
+                default: System.out.println("\nInvalid!");
+            }
+           }while(ch!=4);
+    }
+}
