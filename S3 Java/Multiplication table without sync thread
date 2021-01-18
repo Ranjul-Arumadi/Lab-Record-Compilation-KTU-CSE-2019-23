@@ -1,0 +1,53 @@
+public class MultiplySync{
+        public static void main(String[] args){
+           
+                toUseSync obj  = new toUseSync();
+                TableOf10 obj1 = new TableOf10(obj);
+                TableOf25 obj2 = new TableOf25(obj);
+                obj1.start();
+                obj2.start();
+        }
+}
+
+class toUseSync
+{
+    void print(int n)
+    {
+        System.out.println("Table Of "+n+"\n");
+        for (int i = 1; i <= 10; i++) 
+        {
+            System.out.println(n+" x "+i+"  = "+(n*i));
+            try{
+                Thread.sleep(300);
+            } 
+            catch(Exception e) {
+                System.out.println("Error ");
+            }             
+          
+        }
+        System.out.println();
+    }
+}
+class TableOf10 extends Thread{
+    toUseSync object;
+    TableOf10(toUseSync object)
+    {
+        this.object=object;
+    }
+    public void run()
+    {
+       object.print(10); 
+    }
+   
+}
+class TableOf25 extends Thread{
+    toUseSync object;
+    TableOf25(toUseSync object)
+    {
+        this.object=object;
+    }
+    public void run()
+    {
+       object.print(25); 
+    }   
+}
