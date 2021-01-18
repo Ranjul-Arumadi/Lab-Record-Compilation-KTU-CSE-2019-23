@@ -1,0 +1,87 @@
+import java.util.*;
+
+public class QuickSort
+{
+	
+	//display
+	void Display(String[] arr,int count)
+	{
+        for (int i=0; i<count; ++i)
+		{
+			System.out.print(arr[i]+"  ");
+		}
+        System.out.println();
+    }
+	
+	//sorting
+	
+	int Partition(String[] arr,int start,int end )
+	{
+        String pivot = arr[start];
+        String temp;
+        int i = end-1;
+        int j;
+        for(j=start;j<=end-1;j++)
+        {
+            if(arr[j].compareTo(pivot)<=0)
+            {
+                i++;
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+        temp = arr[i+1];
+        arr[i+1]= arr[start];
+        arr[start]=temp;
+        return i+1;
+    }
+
+    void QuickSort(String[] arr,int start,int end)
+	{
+        
+		if(start<end)
+        {
+            int temp = Partition(arr,start,end);
+            QuickSort(arr,end,temp-1);
+            QuickSort(arr,temp+1,start);
+        }
+    }
+	
+	public static void main(String[] args)
+	{
+       int count,ch=3;
+        QuickSort obj = new QuickSort();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the count of entries :  ");
+        count= scanner.nextInt();
+        String[] arr = new String[count];
+        System.out.println("Enter the names : ");
+        for(int i=0;i<=count;++i)
+		{
+			arr[i]=scanner.nextLine();
+		}
+		System.out.print("Enter the choice :");
+		count= scanner.nextInt();
+        while(ch!=3)
+		{
+            System.out.println("\nEnter choice: 1.Quick Sort 2.Display 3.Exit");
+            System.out.print("\nEnter choice: ");
+            ch = scanner.nextInt();
+            switch(ch)
+            {
+                case 1: obj.QuickSort(arr,0,count); 
+                        break;
+                case 2: System.out.println("\nNames Are: ");
+                        obj.Display(arr,count); 
+                        break;
+                case 3: System.out.println("\nExiting...\n");
+                        break;
+                default: System.out.println("\nInvalid Choice\n");
+            }
+        }
+    }
+	
+	
+	 
+}
