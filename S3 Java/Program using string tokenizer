@@ -1,0 +1,23 @@
+import java.util.StringTokenizer;  
+import java.util.Scanner;
+public class vedanstringtokenizer
+{  
+	public static void main(String args[])
+	{  
+		Scanner scanner=new Scanner(System.in);
+		String num;
+		int sum=0,temp;
+		System.out.println("Enter numbers as a string with spaces");
+		num=scanner.nextLine();
+		StringTokenizer st = new StringTokenizer(num," ");  
+		while (st.hasMoreTokens()) 
+		{  
+			//System.out.println(st.nextToken()); 
+			temp=Integer.parseInt(st.nextToken());
+			System.out.println(temp);
+			sum=sum+temp;			
+		}  
+		System.out.println("Sum : "+sum);
+		scanner.close();
+   }  
+}
