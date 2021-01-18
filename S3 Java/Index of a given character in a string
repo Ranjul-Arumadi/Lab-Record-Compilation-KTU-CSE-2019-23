@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class second
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String  input;
+		System.out.println("Enter string :\t");
+		input=s.nextLine();
+		System.out.println("Enter character :\t");
+		char search=s.next().charAt(0);
+		int flag=0;
+		
+		int a=input.indexOf(search,0);	
+		if(a==-1)
+		{
+			System.out.println("Char not found in string");
+		
+		}
+		else
+		{
+			System.out.println("Char found at : "+a+"\n");
+		}			
+		
+	}
+}
