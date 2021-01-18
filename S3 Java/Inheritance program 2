@@ -1,0 +1,45 @@
+package hmm;
+import java.util.Scanner;
+
+class vehicle{
+    void display(){
+        System.out.println("I am vehicle");
+    }
+}
+class Bike extends vehicle{
+    String brand;
+    Bike(String bikebrnd){
+        super.display();
+        brand=bikebrnd;
+    }
+    void display(){
+        System.out.println("Bike brand is "+brand);
+    }
+}
+class Car extends vehicle{
+    String brand;
+    Car(String carbrand){
+        super.display();
+        brand=carbrand;
+    }
+    void display(){
+        System.out.println("Car brand is "+brand);
+    }
+
+}
+public class supervhcle {
+    public static void main(String [] args)
+    {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter car brand");
+        String s1= scanner.nextLine();
+        Car c=new Car(s1);
+        c.display();
+        System.out.println("Enter bike brand");
+        String s2= scanner.nextLine();
+        Bike b=new Bike(s2);
+        b.display();
+
+
+    }
+}
