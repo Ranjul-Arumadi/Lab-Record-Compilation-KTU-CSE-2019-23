@@ -50,6 +50,36 @@ Baics of shell programming in Linux
     Print all values of an array - 
     
     echo ${var[@]} OR echo ${var[*]} 
+    
+7. Copying array using @ and "( )"
+
+    arr=("a" "b" "c")
+    
+    newarr=("${ar[@]}")
+
+8. Print scrit name
+
+    echo $0
+    
+9. hashbang / shebang
+
+    #!/bin/bash
+
+10. if else fi
+
+    if condtn
+    then
+        stmnt
+    else
+        stmnt
+    fi    
+    
+11. while do done
+
+    while condtn
+    do
+        stmnt
+    done    
 
 comment
 
