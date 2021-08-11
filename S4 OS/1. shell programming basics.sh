@@ -12,10 +12,44 @@ Baics of shell programming in Linux
     samename
 
 3. assign value to variable
-
-    varname = value
     
-4. 
+    Note : every variable is an array in bash
+    
+    varname=value #avoid spaces
+    
+    OR
+    
+    (( varname = value )) #with spaces
+    
+4. Referance variable value
+
+    echo $variableName
+    
+    OR
+    
+    echo ${variableName}
+    
+
+5. Delete variable
+    
+    unset variablename
+    
+6.  Arrays
+
+    Every variable is an array
+    
+    var[0]="apple"
+    var[1]="ball"
+    
+    printing : ${var[0]}     o/p - apple
+    
+    OR
+    
+    var=("apple" "ball" "cat")
+    
+    Print all values of an array - 
+    
+    echo ${var[@]} OR echo ${var[*]} 
 
 comment
 
