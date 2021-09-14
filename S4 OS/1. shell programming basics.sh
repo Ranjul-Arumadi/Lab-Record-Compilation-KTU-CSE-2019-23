@@ -67,7 +67,7 @@ Baics of shell programming in Linux
 
 10. if else fi
 
-    if condtn
+    if [ condtn ]    #condition should be in [square brackets]
     then
         stmnt
     else
@@ -80,6 +80,14 @@ Baics of shell programming in Linux
     do
         stmnt
     done    
+12. Dont forget backticks(``)
+
+    val = `expr 2 + 2`
+    echo "val: $val"
+    
+13.     
+    
+    
 
 comment
 
