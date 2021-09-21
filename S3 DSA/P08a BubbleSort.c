@@ -1,3 +1,13 @@
+/*
+Time complexity: Best- O(n) | Worst, Average- O(n^2)
+
+Bubble sort is one of the simplest sorting algorithms.
+
+The crucial component in a  bubble sort is using a nested for loop where the outer for loop runs untill 
+size-1 and inner for loop run untill size-i-1. In bubble sort the adjacent elements are compared and 
+based on < or > condition they are swapped. This is what happens in the inner loop. The outer loop lets
+the inner for loop run for size-1 times. 
+*/
 #include <stdio.h>
 void bubbleSort(int arr[],int size);
 void display(int arr[],int size);
