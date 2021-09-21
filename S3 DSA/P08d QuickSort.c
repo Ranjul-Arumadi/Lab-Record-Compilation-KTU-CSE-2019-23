@@ -21,69 +21,67 @@ only one element.
 
 Finally all thes sub-arrays are merged to form the final sorted array. 
 */
-#include<stdio.h>
-#include<conio.h>
-#define MAX_SIZE 50
-int arr[MAX_SIZE],n;
-void QuickSort(int a,int b);
-void Display();
-int Partition(int ,int);
-int main()
-{
+#include <stdio.h>
 
-   printf("\nEnter the size of array (less than 50)  : ");
-   scanf("%d",&n);
-   printf("\nEnter the array values:\n");
-   for(int i=0;i<n;++i)
-   {
-	scanf("%d",&arr[i]);   
-   }
-   printf("\nArray is:\n");
-   Display();
-   QuickSort(0,n-1);
-   printf("\nArrray after quick sort :\n");
-   Display();
+void swap(int *a, int *b){
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
 
-   return 0;
+void printArray(int data[], int n){
+    printf("\n\n\n");
+    for(int i=0;i<n;i++){
+        printf("%d \t",data[i]);
+    }
 }
-void QuickSort(int lower, int upper) 
-{ 
-    if (lower < upper) 
-    { 
-        int q = Partition(lower, upper); 
-        QuickSort(lower, q - 1); 
-        QuickSort(q + 1, upper); 
-    } 
-}
-int Partition(int lower,int upper) 
-{ 
-    int pivot = arr[upper];
-    int i = (lower - 1);
-    int temp;
-	for (int j = lower; j <= upper- 1; j++) 
-    { 
-        if (arr[j] < pivot) 
-        { 
+
+int partition(int data[] ,int l,int h, int n){
+    
+    int pivot = data[l];
+    int i=l,j=h;
+    while(i<j){
+        do{
             i++;
-            temp=arr[i];
-            arr[i]=arr[j];
-            arr[j]=temp;
-        } 
-    } 
-    temp=arr[i+1];
-    arr[i+1]=arr[upper];
-    arr[upper]=temp;
-    return (i + 1); 
-} 
+        }while(data[i]<=pivot);
+    
+        do{
+            j--;
+        }while(data[j]>pivot);
+    
+        if(i<j){
+			printf("\ni<j");
+            swap(&data[i], &data[j]);
+			//printArray(data,n);
+        }    
+    }
+    swap(&data[l], &data[j]);
+	//printArray(data, n);
+    
+	return j;
+}
 
+void quicksort(int data[], int l, int h, int n){
+    int j;
+    if(l<h){
+        j = partition(data,l,h,n);
+        quicksort(data,l,j,n);
+        quicksort(data,j+1,h,n);
+    }
+}
 
-
-void Display()
-{ 
+int main() {
+  int data[] = {8, 7, 2, 1, 0, 9, 6};
   
-   for(int i=0;i<n;++i)
-   {
-	printf("%d\t",arr[i]);   
-   }
-   printf("\n");
+  int n = sizeof(data) / sizeof(data[0]);
+  
+  printf("Unsorted Array\n");
+  printArray(data, n);
+  
+  quicksort(data,0,n,n);
+  
+  printf("\nFinal");
+  printArray(data, n);
+  
+  return 0;
 }
