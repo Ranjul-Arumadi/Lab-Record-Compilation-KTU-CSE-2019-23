@@ -1,3 +1,26 @@
+/*
+Time complexity:
+Best Time Complexity : O(nlogn)
+Average Time Complexity : O(nlogn)
+Worst Time Complexity : O(n^2) [Worst will happen when the array is sorted]
+
+It follows a divide and conquer approach. Quicksort uses recursion. 
+
+It has 3 components - quicksort, partition, and swap.
+
+Basic working- It involves braking down the arrays into sub-arrays untill all
+the sub array contain only 1 element.
+
+How to create sub arrays? : This is down by choosing a pivot element fomr the
+array. The resultant sub arrray will the values in such a way that the 
+values less than the pivot will be to the left side of the sub array anf the
+values greater then the pivot will be to the right side of the pivot element.
+
+This partitioning process will take place untill all the sub arrays will have
+only one element.
+
+Finally all thes sub-arrays are merged to form the final sorted array. 
+*/
 #include<stdio.h>
 #include<conio.h>
 #define MAX_SIZE 50
