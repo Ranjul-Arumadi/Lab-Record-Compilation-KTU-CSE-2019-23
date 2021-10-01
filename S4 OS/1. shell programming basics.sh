@@ -85,7 +85,9 @@ Baics of shell programming in Linux
     val = `expr 2 + 2`
     echo "val: $val"
     
-13.     
+13. Run .sh script in linux
+    a. sh <filename.sh>
+    b. bash <filename.sh>
     
     
 
