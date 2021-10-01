@@ -88,7 +88,19 @@ Baics of shell programming in Linux
 13. Run .sh script in linux
     a. sh <filename.sh>
     b. bash <filename.sh>
+
+14. Exit vi without saving changes
+
+    a. press Esc key
+    b. enter :   i.e by pressing ( shift+; )
+    c. press enter
+
+15. Exit vi by saving changes
     
+    a. same as 14 a
+    b. same as 14 b
+    c. enter wq after the colon
+    d. press enter
     
 
 comment
