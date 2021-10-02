@@ -20,8 +20,6 @@ ref string: 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
 
 #include<stdio.h>
 int front=-1,rear=-1,que[20];
-
-//used to store page values to queue
 void add(int num)
 {
 	if(front==-1)
@@ -82,42 +80,32 @@ void main()
 	    flag=0;
 		for(j=0;j<r;j++)
 		{
-			//if frame is empty
 			if(frame[j]==-1)
 			{
-				//add page to the frame
 				frame[j]=page[i];
-				//enqueue frame VALUE to the queue NOT INDEX
 				add(page[i]);
 				flag=1;
 				fault++;
-				//IMPORTANT
 				break;
 			}
-			//if frame value is same as new page value
 			else if(frame[j]==page[i])
 			{
 				flag=1;
-				//remove specific VALUE from the queue
 				removi(page[i]);
-				//enqueue the new page VALUE to the queue
 				add(page[i]);
 				break;
 			}
 		}
-		//no frames free and new value is not present in frames
 		if(flag==0)
 		{
 			fault++;
+			add(page[i]);
 			int m=ret();
-			//dequeue values from queue if the value is -1
 			while(m==-1)
 			{
 				m=ret();
 			}
-			
-      //the dequeued value is the LRu value so,
-			//replace the dequeued value from the frame with new value
+				
 			for(j=0;j<r;j++)
 			{
 				if(frame[j]==m)
