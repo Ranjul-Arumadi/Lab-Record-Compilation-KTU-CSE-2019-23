@@ -20,6 +20,7 @@ ref string: 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
 
 #include<stdio.h>
 int front=-1,rear=-1,que[20];
+//adding new pages to queue
 void add(int num)
 {
 	if(front==-1)
@@ -33,6 +34,7 @@ void add(int num)
 	}
 	que[rear]=num;
 }
+//dequeue process from queue
 int ret()
 {
 	int retval=que[front];
@@ -47,6 +49,8 @@ int ret()
 	}
 	return retval;
 }
+//used when a new page has no space in frame and existing values in frame are not equal to new value
+//this function will set the existing value to -1
 void removi(int num)
 {
     int i;
@@ -79,7 +83,8 @@ void main()
 	{
 	    flag=0;
 		for(j=0;j<r;j++)
-		{
+		{	
+			//if frame is empty fill the frame with the value
 			if(frame[j]==-1)
 			{
 				frame[j]=page[i];
@@ -88,6 +93,8 @@ void main()
 				fault++;
 				break;
 			}
+			//if new page value is present in a frame then set that pagevalue in queue to -1
+			//and add the new page value again to the queue
 			else if(frame[j]==page[i])
 			{
 				flag=1;
@@ -96,16 +103,22 @@ void main()
 				break;
 			}
 		}
+		//case where no frame space is available and existing value dont match new value
 		if(flag==0)
 		{
 			fault++;
+			//add the new page to the queue
 			add(page[i]);
+			//get the dequeued value from queue
 			int m=ret();
+			//if the dequeued value is -1 keep dequeing untill it is not
 			while(m==-1)
 			{
 				m=ret();
 			}
-				
+			
+			//search for this value in frames and if found replace that value with the new page value
+			//the value being replaced is the LRU value.
 			for(j=0;j<r;j++)
 			{
 				if(frame[j]==m)
